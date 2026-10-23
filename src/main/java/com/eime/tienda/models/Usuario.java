@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 /**
  *
@@ -29,22 +30,17 @@ public class Usuario {
     
     @Column(nullable=false, unique=true)
     private String password;
-    
+   
     @Column(nullable=false, unique=true)
     private String email;
+   
+    @Column(nullable=true)
+    private String nombre; 
     
     @Column(name="fecha_registro",nullable=false, unique=true)
-    private LocalTime fechaRegistro;
+    private LocalDateTime fechaRegistro;
 
     public Usuario() {
-    }
-    
-    public Usuario(Long id, String username, String password, String email, LocalTime fechaRegistro) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.fechaRegistro = fechaRegistro;
     }
 
     public Long getId() {
@@ -79,16 +75,13 @@ public class Usuario {
         this.email = email;
     }
 
-    public LocalTime getFechaRegistro() {
+    public LocalDateTime getFechaRegistro() {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(LocalTime fechaRegistro) {
+    public void setFechaRegistro(LocalDateTime fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
     
-    
-    
-    
-    
+
 }
